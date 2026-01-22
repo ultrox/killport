@@ -1,16 +1,10 @@
 # killport
 
-A simple CLI tool to kill processes running on a specific port.
-
 [![npm](https://img.shields.io/npm/v/@ma.vu/killport)](https://www.npmjs.com/package/@ma.vu/killport)
 
-## Philosophy
+**Supported:** Linux, macOS, Windows
 
-There is nothing worse than dependencies. Every `node_modules` is a liability—security risks, version conflicts, abandoned packages, supply chain attacks. This project has **zero runtime dependencies**.
-
-The only dev dependency is `esbuild`, and it's there because Node.js still can't ship a single-file bundle after all these years. No ESM/CJS interop story, no built-in bundler, nothing. So we use esbuild to produce one minified file and call it a day.
-
-**Dependencies**: 0 runtime, 1 dev (esbuild for bundling)
+A CLI tool to kill processes running on a specific port. No more googling "how to kill port 3000".
 
 ## Installation
 
@@ -66,6 +60,10 @@ Listening ports:
 |--------|-------|-------------|
 | `--force` | `-f` | Force kill using SIGKILL instead of SIGTERM |
 | `--peek` | `-p` | List all processes listening on ports |
+
+## Philosophy
+
+**Zero runtime dependencies.** The only dev dependency is `esbuild` for bundling into a single file.
 
 ## Requirements
 
