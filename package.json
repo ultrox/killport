@@ -12,6 +12,9 @@
   "keywords": ["cli", "port", "kill"],
   "author": "Marko Vujanic",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
