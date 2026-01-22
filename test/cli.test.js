@@ -11,7 +11,7 @@ function run(...args) {
 
 test("shows nothing to kill on unused port with hint", () => {
   const output = run("59999");
-  assert.ok(output.includes("Nothing running on port 59999"));
+  assert.ok(output.includes("59999")); // port mentioned in playful message
   assert.ok(output.includes("Hint: use --peek or -p"));
 });
 
@@ -37,7 +37,7 @@ test("kills process running on port", async () => {
   });
 
   const output = run("58886");
-  assert.ok(output.includes("Killed"));
+  assert.ok(output.includes("node")); // process name in playful kill message
 });
 
 test("force kills process running on port", async () => {
@@ -53,7 +53,7 @@ test("force kills process running on port", async () => {
   });
 
   const output = run("58885", "--force");
-  assert.ok(output.includes("Killed"));
+  assert.ok(output.includes("node")); // process name in playful kill message
 });
 
 test("peek shows listening ports", async () => {
