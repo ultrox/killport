@@ -7,7 +7,8 @@
     "killport": "bin/cli.js"
   },
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "prepublishOnly": "./scripts/prepublish.sh"
   },
   "keywords": [
     "cli",
