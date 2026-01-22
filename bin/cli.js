@@ -1,11 +1,32 @@
 #!/usr/bin/env node
 
 const { killPort, peekPorts } = require("../lib/kill.js");
+const { version } = require("../package.json");
 
 const args = process.argv.slice(2);
 const port = args.find((arg) => !arg.startsWith("-"));
 const force = args.includes("--force") || args.includes("-f");
 const peek = args.includes("--peek") || args.includes("-p");
+const showVersion = args.includes("--version") || args.includes("-v");
+const showHelp = args.includes("--help") || args.includes("-h");
+
+if (showVersion) {
+  console.log(version);
+  process.exit(0);
+}
+
+if (showHelp) {
+  console.log(`killport v${version}
+
+Usage: killport <port> [options]
+
+Options:
+  -f, --force    Force kill (SIGKILL instead of SIGTERM)
+  -p, --peek     List all listening ports
+  -v, --version  Show version
+  -h, --help     Show this help`);
+  process.exit(0);
+}
 
 if (peek) {
   const ports = peekPorts();
