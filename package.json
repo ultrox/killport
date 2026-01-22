@@ -1,6 +1,6 @@
 {
   "name": "@ma.vu/killport",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "CLI tool to kill processes on a port",
   "main": "dist/cli.js",
   "bin": {

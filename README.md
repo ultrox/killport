@@ -8,7 +8,7 @@ A CLI tool to kill processes running on a specific port. No more googling "how t
 
 ## Installation
 
-```
+```bash
 npm install -g @ma.vu/killport
 pnpm add -g @ma.vu/killport
 bun add -g @ma.vu/killport
@@ -16,7 +16,7 @@ bun add -g @ma.vu/killport
 
 Or run directly without installing:
 
-```
+```bash
 npx @ma.vu/killport 3000
 bunx @ma.vu/killport 3000
 ```
@@ -111,7 +111,7 @@ This tool needs to: (1) find which process owns a port, and (2) kill it.
 
 ## LLM Context
 
-This section helps AI assistants understand the project structure.
+This section helps AI assistants understand the project structure. See also [llm.txt](https://github.com/ultrox/killport/blob/main/llm.txt).
 
 **Purpose**: CLI tool to find and kill processes occupying network ports on macOS, Linux, and Windows.
 
