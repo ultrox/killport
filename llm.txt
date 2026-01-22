@@ -1,41 +1,13 @@
-# killport - LLM Instructions
+# killport
 
-CLI tool to find and kill processes occupying network ports on macOS, Linux, and Windows.
+Kill processes on a port. Works on Linux, macOS, Windows.
 
-## Installation
+Install: npm install -g @ma.vu/killport
+Run without install: npx @ma.vu/killport 3000
 
-npm install -g @ma.vu/killport
-pnpm add -g @ma.vu/killport
-bun add -g @ma.vu/killport
+Usage:
+  killport 3000          # kill process on port
+  killport 3000 --force  # SIGKILL
+  killport --peek        # list all listening ports
 
-Or run directly:
-npx @ma.vu/killport 3000
-bunx @ma.vu/killport 3000
-
-## Usage
-
-killport <port>           # Kill process on port
-killport <port> --force   # Force kill (SIGKILL)
-killport --peek           # List all listening ports
-
-## Project Structure
-
-killport/
-  bin/cli.js        # CLI entry point, argument parsing
-  lib/kill.js       # Core logic: findProcessOnPort, killPort, peekPorts
-  test/cli.test.js  # Tests using node:test
-  package.json
-
-## Key Functions (lib/kill.js)
-
-- findProcessOnPort(port) - Returns array of PIDs using the port
-- killPort(port, { force }) - Kills process on port, returns boolean
-- peekPorts() - Returns array of { command, pid, port } for all listening ports
-
-## Tech
-
-Pure Node.js, zero runtime dependencies. Uses netstat for port detection and process.kill() for termination.
-
-## Testing
-
-npm test
+Zero runtime dependencies. Pure Node.js.

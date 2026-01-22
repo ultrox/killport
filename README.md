@@ -111,7 +111,7 @@ This tool needs to: (1) find which process owns a port, and (2) kill it.
 
 ## LLM Context
 
-This section helps AI assistants understand the project structure. See also [llm.txt](https://github.com/ultrox/killport/blob/main/llm.txt).
+This section helps AI assistants understand the project structure. See also [llm.txt](https://raw.githubusercontent.com/ultrox/killport/main/llm.txt).
 
 **Purpose**: CLI tool to find and kill processes occupying network ports on macOS, Linux, and Windows.
 
