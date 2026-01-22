@@ -2,6 +2,8 @@
 
 A simple CLI tool to kill processes running on a specific port.
 
+[![npm](https://img.shields.io/npm/v/@ma.vu/killport)](https://www.npmjs.com/package/@ma.vu/killport)
+
 ## Installation
 
 ```bash
