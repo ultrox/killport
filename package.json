@@ -1,14 +1,18 @@
 {
   "name": "@ma.vu/killport",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "CLI tool to kill processes on a port",
-  "main": "index.js",
+  "main": "dist/cli.js",
   "bin": {
-    "killport": "bin/cli.js"
+    "killport": "dist/cli.js"
   },
   "scripts": {
+    "build": "esbuild bin/cli.js --bundle --platform=node --minify --outfile=dist/cli.js",
     "test": "node --test",
     "prepublishOnly": "./scripts/prepublish.sh"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.2"
   },
   "keywords": [
     "cli",
@@ -17,6 +21,9 @@
   ],
   "author": "Marko Vujanic",
   "license": "ISC",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

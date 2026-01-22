@@ -31,5 +31,10 @@ echo "🧪 Running tests..."
 npm test
 echo -e "${GREEN}✓${NC} Tests passed"
 
+# Build
+echo "🔨 Building..."
+npm run build
+echo -e "${GREEN}✓${NC} Build complete"
+
 echo ""
 echo "📦 Publishing @ma.vu/killport@$LOCAL..."
