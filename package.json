@@ -10,6 +10,6 @@
     "test": "node --test"
   },
   "keywords": ["cli", "port", "kill"],
-  "author": "",
+  "author": "Marko Vujanic",
   "license": "ISC"
 }

@@ -9,9 +9,10 @@ function run(...args) {
   return execSync(`node ${cli} ${args.join(" ")}`, { encoding: "utf-8" }).trim();
 }
 
-test("shows nothing to kill on unused port", () => {
+test("shows nothing to kill on unused port with hint", () => {
   const output = run("59999");
-  assert.strictEqual(output, "Nothing running on port 59999");
+  assert.ok(output.includes("Nothing running on port 59999"));
+  assert.ok(output.includes("Hint: use --peek or -p"));
 });
 
 test("shows usage when no port provided", () => {
@@ -53,4 +54,23 @@ test("force kills process running on port", async () => {
 
   const output = run("58885", "--force");
   assert.ok(output.includes("Killed process"));
+});
+
+test("peek shows listening ports", async () => {
+  const server = spawn("node", [
+    "-e",
+    "require('net').createServer().listen(58884, () => console.log('ready'))",
+  ]);
+
+  await new Promise((resolve) => {
+    server.stdout.on("data", (data) => {
+      if (data.toString().includes("ready")) resolve();
+    });
+  });
+
+  const output = run("--peek");
+  assert.ok(output.includes("Listening ports:"));
+  assert.ok(output.includes("58884"));
+
+  server.kill();
 });
