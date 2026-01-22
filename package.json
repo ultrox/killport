@@ -1,6 +1,6 @@
 {
   "name": "@ma.vu/killport",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI tool to kill processes on a port",
   "main": "index.js",
   "bin": {
@@ -11,5 +11,9 @@
   },
   "keywords": ["cli", "port", "kill"],
   "author": "Marko Vujanic",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
 }

@@ -60,7 +60,7 @@ Listening ports:
 ## Requirements
 
 - Node.js 18+
-- macOS or Linux (uses `lsof`)
+- macOS, Linux, or Windows
 
 ## License
 
@@ -68,11 +68,35 @@ ISC
 
 ---
 
+## Implementation Notes
+
+This tool needs to: (1) find which process owns a port, and (2) kill it.
+
+**Why `netstat` instead of `lsof`?**
+- `lsof` is Unix-only (macOS/Linux)
+- `netstat` exists on all platforms (Windows, macOS, Linux)
+- One tool, platform-specific flags:
+  - Windows: `netstat -ano`
+  - macOS: `netstat -anv`
+  - Linux: `netstat -tlnp`
+
+**Why `process.kill()` instead of shell commands?**
+- Node's built-in `process.kill(pid, signal)` works cross-platform
+- No need to shell out to `kill` (Unix) or `taskkill` (Windows)
+- Cleaner, fewer moving parts
+
+**Why not pure Node.js for port detection?**
+- Node has no API to query "which process owns port X"
+- `net` module can check if a port is busy, but not WHO owns it
+- OS-level tools like `netstat` are required for PID discovery
+
+---
+
 ## LLM Context
 
 This section helps AI assistants understand the project structure.
 
-**Purpose**: CLI tool to find and kill processes occupying network ports on macOS/Linux.
+**Purpose**: CLI tool to find and kill processes occupying network ports on macOS, Linux, and Windows.
 
 **Structure**:
 ```
@@ -88,6 +112,6 @@ killport/
 - `killPort(port, { force })` - Kills process on port, returns boolean
 - `peekPorts()` - Returns array of `{ command, pid, port }` for all listening ports
 
-**Tech**: Pure Node.js, no dependencies. Uses `lsof` for port detection and native `kill` command.
+**Tech**: Pure Node.js, no dependencies. Uses `netstat` for port detection and `process.kill()` for termination.
 
 **Testing**: `npm test` runs tests via Node's built-in test runner (`node:test`).
