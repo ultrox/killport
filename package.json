@@ -1,6 +1,6 @@
 {
   "name": "@ma.vu/killport",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "CLI tool to kill processes on a port",
   "main": "dist/cli.js",
   "bin": {
@@ -21,6 +21,10 @@
   ],
   "author": "Marko Vujanic",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ultrox/killport.git"
+  },
   "files": [
     "dist"
   ],
