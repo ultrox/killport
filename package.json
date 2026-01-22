@@ -1,0 +1,15 @@
+{
+  "name": "@ma.vu/killport",
+  "version": "1.0.0",
+  "description": "CLI tool to kill processes on a port",
+  "main": "index.js",
+  "bin": {
+    "killport": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["cli", "port", "kill"],
+  "author": "",
+  "license": "ISC"
+}
