@@ -37,7 +37,7 @@ test("kills process running on port", async () => {
   });
 
   const output = run("58886");
-  assert.ok(output.includes("Killed process"));
+  assert.ok(output.includes("HEADSHOT"));
 });
 
 test("force kills process running on port", async () => {
@@ -53,7 +53,7 @@ test("force kills process running on port", async () => {
   });
 
   const output = run("58885", "--force");
-  assert.ok(output.includes("Killed process"));
+  assert.ok(output.includes("HEADSHOT"));
 });
 
 test("peek shows listening ports", async () => {
