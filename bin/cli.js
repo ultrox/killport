@@ -13,8 +13,10 @@ if (peek) {
     console.log("No ports currently listening");
   } else {
     console.log("Listening ports:");
+    const maxPort = Math.max(...ports.map((p) => p.port.length));
     for (const p of ports) {
-      console.log(`  ${p.port} - ${p.command} (pid ${p.pid})`);
+      const name = p.command || "unknown";
+      console.log(`  ${p.port.padStart(maxPort)} - ${name} (pid ${p.pid})`);
     }
   }
   process.exit(0);
