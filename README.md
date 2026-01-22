@@ -8,8 +8,17 @@ A CLI tool to kill processes running on a specific port. No more googling "how t
 
 ## Installation
 
-```bash
+```
 npm install -g @ma.vu/killport
+pnpm add -g @ma.vu/killport
+bun add -g @ma.vu/killport
+```
+
+Or run directly without installing:
+
+```
+npx @ma.vu/killport 3000
+bunx @ma.vu/killport 3000
 ```
 
 ## Usage
